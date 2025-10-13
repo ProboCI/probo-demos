@@ -20,7 +20,7 @@ steps:
       rm -rf $SRC_DIR
       composer create-project drupal/recommended-project /src
       cd /src
-      composer require drupal/admin_menu
+      composer require drupal/admin_toolbar
       composer require drupal/devel
       composer require drush/drush
 
@@ -41,8 +41,8 @@ steps:
     plugin: Script
     script: |
       cd $SRC_DIR/web
-      drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --locale=en --langcode=en --yes  
-      drush en admin_menu devel -y    
+      drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
+      drush en admin_toolbar devel -y    
       drush cr
 
   # This step is optional given we are assigning our username and password in the previous step, but you can
