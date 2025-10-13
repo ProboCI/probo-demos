@@ -16,7 +16,7 @@ steps:
   - name: Install The Latest Modern Drupal With Composer
     plugin: Script
     script: |
-      cd $SRC_DIR
+      cd $SRC_DIR/web
       composer create-project drupal/recommended-project .
       composer require drupal/admin_menu
       composer require drupal/devel
@@ -29,7 +29,7 @@ steps:
     drupalVersion: 11
     clearCaches: false
     databaseUpdates: false
-    subDirectory: web
+    subDirectory: web/web
 
   # This will install a demonstration Drupal site with a standard username and password. Note that the
   # database username and password does not need to be changed and is a non-privileged user. The password
@@ -38,7 +38,7 @@ steps:
   - name: Run Drupal Installation using drush
     plugin: Script
     script: |
-      cd $SRC_DIR
+      cd $SRC_DIR/web
       drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --locale=en --langcode=en --yes  
       drush en admin_menu devel -y    
       drush cr
@@ -48,6 +48,6 @@ steps:
   - name: Get Drush uli For Our site
     plugin: Script
     script: |
-      cd $SRC_DIR
+      cd $SRC_DIR/web
       drush uli
 
