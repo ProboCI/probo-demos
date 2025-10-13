@@ -41,7 +41,7 @@ steps:
     plugin: Script
     script: |
       cd $SRC_DIR/web
-      drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
+      drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://root:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
       drush en admin_toolbar devel -y    
       drush cr
 
