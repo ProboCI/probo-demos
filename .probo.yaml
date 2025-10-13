@@ -16,8 +16,8 @@ steps:
   - name: Install The Latest Modern Drupal With Composer
     plugin: Script
     script: |
-      cd $SRC_DIR/web
-      composer create-project drupal/recommended-project ./web
+      rm -rf $SRC_DIR
+      composer create-project drupal/recommended-project /src
       composer require drupal/admin_menu
       composer require drupal/devel
       composer require drush/drush
@@ -29,7 +29,7 @@ steps:
     drupalVersion: 11
     clearCaches: false
     databaseUpdates: false
-    subDirectory: web/web
+    subDirectory: web
 
   # This will install a demonstration Drupal site with a standard username and password. Note that the
   # database username and password does not need to be changed and is a non-privileged user. The password
