@@ -7,7 +7,7 @@
 # of testing in other versions.=
 type: lamp
 php: 8.4
-database: mysql:8.0
+database: mariadb:10.11
 
 # These are our build steps. Because we're starting with a fresh install, we need to install
 # Drupal 11 with composer. If you have an existing composer.lock file, you can skip the steps
@@ -44,6 +44,7 @@ steps:
       rm settings.php
       cp default.settings.php settings.php
       chmod 777 settings.php
+      chmod -R 777 files
       drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://root:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
       drush en admin_toolbar devel -y    
       drush cr
