@@ -19,6 +19,7 @@ steps:
       cd /
       rm -rf $SRC_DIR
       composer create-project drupal/recommended-project /src
+      cd /src
       composer require drupal/admin_menu
       composer require drupal/devel
       composer require drush/drush
