@@ -17,7 +17,7 @@ steps:
     plugin: Script
     script: |
       cd $SRC_DIR/web
-      composer create-project drupal/recommended-project .
+      composer create-project drupal/recommended-project ./web
       composer require drupal/admin_menu
       composer require drupal/devel
       composer require drush/drush
