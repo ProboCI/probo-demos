@@ -37,19 +37,19 @@ steps:
   # database username and password does not need to be changed and is a non-privileged user. The password
   # assigned can be configured and is not really a secret given it is insulated by using Docker contaienrs
   # to run as opposed to being accesible outside the application.
-  - name: Run Drupal Installation using drush
-    plugin: Script
-    script: |
-      cd $SRC_DIR/web
-      drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://root:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
-      drush en admin_toolbar devel -y    
-      drush cr
+  # - name: Run Drupal Installation using drush
+  #   plugin: Script
+  #   script: |
+  #     cd $SRC_DIR/web
+  #     drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://root:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
+  #     drush en admin_toolbar devel -y    
+  #     drush cr
 
   # This step is optional given we are assigning our username and password in the previous step, but you can
   # leverage this technique to quickly log in to your Probo.CI environment with your privileged account.
-  - name: Get Drush uli For Our site
-    plugin: Script
-    script: |
-      cd $SRC_DIR/web
-      drush uli
+  # - name: Get Drush uli For Our site
+  #   plugin: Script
+  #   script: |
+  #     cd $SRC_DIR/web
+  #     drush uli
 
