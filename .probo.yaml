@@ -38,7 +38,7 @@ steps:
   - name: Run Drupal Installation using drush
     plugin: Script
     script: |
-      cd $SRC_DIR/web
+      cd $SRC_DIR
       drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --locale=en --langcode=en --yes  
       drush en admin_menu devel -y    
       drush cr
@@ -48,6 +48,6 @@ steps:
   - name: Get Drush uli For Our site
     plugin: Script
     script: |
-      cd $SRC_DIR/web
+      cd $SRC_DIR
       drush uli
 
