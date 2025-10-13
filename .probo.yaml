@@ -32,9 +32,6 @@ steps:
     phpIniOptions:
       memory_limit: 512M
       max_execution_time: 300
-    subDirectory: web
-
-
 
   # This will install a demonstration Drupal site with a standard username and password. Note that the
   # database username and password does not need to be changed and is a non-privileged user. The password
