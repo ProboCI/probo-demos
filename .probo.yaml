@@ -7,7 +7,7 @@
 # of testing in other versions.=
 type: lamp
 php: 8.4
-database: mariadb:10.11
+database: mysql:8.0
 
 # These are our build steps. Because we're starting with a fresh install, we need to install
 # Drupal 11 with composer. If you have an existing composer.lock file, you can skip the steps
@@ -27,7 +27,10 @@ steps:
   # We need to tell Probo.CI that we're using a Drupal site so the database is properly configured
   # and settings.php files are also properly configured.
   - name: Set Up The Drupal Plugin
-    plugin: LAMPApp
+    plugin: Drupal
+    drupalVersion: 11
+    clearCaches: false
+    databaseUpdates: false
     subDirectory: web
     phpIniOptions:
       memory_limit: 512M
