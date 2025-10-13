@@ -27,11 +27,14 @@ steps:
   # We need to tell Probo.CI that we're using a Drupal site so the database is properly configured
   # and settings.php files are also properly configured.
   - name: Set Up The Drupal Plugin To Inform Probo.CI we'ree using a Drupal web site.
-    plugin: Drupal
-    drupalVersion: 11
-    clearCaches: false
-    databaseUpdates: false
+    plugin: LAMPApp
     subDirectory: web
+    phpIniOptions:
+      memory_limit: 512M
+      max_execution_time: 300
+    subDirectory: web
+
+
 
   # This will install a demonstration Drupal site with a standard username and password. Note that the
   # database username and password does not need to be changed and is a non-privileged user. The password
