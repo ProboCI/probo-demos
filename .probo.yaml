@@ -7,7 +7,7 @@
 # of testing in other versions.=
 type: lamp
 php: 8.4
-database: mysql:8.0
+database: mysql:8.4
 
 # These are our build steps. Because we're starting with a fresh install, we need to install
 # Drupal 11 with composer. If you have an existing composer.lock file, you can skip the steps
