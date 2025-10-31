@@ -1,0 +1,18 @@
+{% set columns = 2 %}
+{% set total_items = items|length %}
+{% set rows = (total_items / columns)|round(0, 'ceil') %}
+<div class="usa-grid">
+  {% for c in 1..columns %}
+    <div class="usa-width-one-half">
+      <ul>
+        {% for r in 1..rows %}
+          {% set i = ((c - 1) * rows) + (r - 1) %}
+          {% set item = items[i] %}
+          {% if item %}
+            <li{{ attributes }}>{{ item.content }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>

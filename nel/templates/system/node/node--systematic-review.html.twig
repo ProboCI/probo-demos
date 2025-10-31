@@ -1,0 +1,65 @@
+<div class="systematic-review">
+
+  {% if content.field_overview.0 is not empty %}
+    <div class="section-overview">
+      <div class="usa-grid">
+        <div class="pictext">
+          <div class="text">
+            {% if cover_image %}
+              <img src="{{ cover_image }}">
+            {% endif %}
+            {{ content.field_overview }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content.field_methodology.0 is not empty %}
+    <div class="section-methodology">
+      <div class="usa-grid">
+        {{ content.field_methodology }}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content.field_subcommittees.0 is not empty %}
+    <div class="section-subcommittees">
+      <div class="usa-grid">
+        <header>
+          <h1>Systematic Reviews</h1>
+        </header>
+        <div class="subcommittees">
+          {{ content.field_subcommittees }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content.field_accordion.0 is not empty %}
+    <div class="section-accordion">
+      <div class="usa-grid">
+        <header>
+          {% if content.field_title.0 is not empty %}
+            <h2>{{ content.field_title.0 }}</h2>
+          {% endif %}
+          {% if content.body.0 is not empty %}
+            <div>{{ content.body.0 }}</div>
+          {% endif %}
+        </header>
+        <div class="accordion">
+          {{ content.field_accordion.0 }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if content.field_fine_print.0 is not empty %}
+    <div class="section-fine-print">
+      <div class="usa-grid">
+        {{ content.field_fine_print }}
+      </div>
+    </div>
+  {% endif %}
+
+</div>

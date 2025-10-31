@@ -1,0 +1,66 @@
+.usa-social-links {
+  margin-top: 2rem;
+  margin-left: -0.7rem;
+  margin-right: -0.7em;
+
+  @include media($small-screen) {
+    margin-top: 1rem;
+  }
+
+  @include media($nav-width) {
+    // float: right;
+    margin-top: 0;
+  }
+
+  a {
+    vertical-align: bottom;
+    text-decoration: none;
+  }
+}
+
+.usa-social-links-set {
+  display: inline-block;
+  white-space: nowrap
+}
+
+
+.usa-link-facebook {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/facebook.png');
+  background-image: url('#{$image-path}/social-icons/svg/facebook.svg');
+}
+.usa-link-twitter {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/twitter.png');
+  background-image: url('#{$image-path}/social-icons/svg/twitter.svg');
+}
+.usa-link-google {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/google.png');
+  background-image: url('#{$image-path}/social-icons/svg/google.svg');
+}
+.usa-link-govdelivery {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/govdelivery.png');
+  background-image: url('#{$image-path}/social-icons/svg/govdelivery.svg');
+}
+.usa-link-instagram {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/instagram.png');
+  background-image: url('#{$image-path}/social-icons/svg/instagram.svg');
+}
+.usa-link-flickr {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/flickr.png');
+  background-image: url('#{$image-path}/social-icons/svg/flickr.svg');
+}
+.usa-link-youtube {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/youtube.png');
+  background-image: url('#{$image-path}/social-icons/svg/youtube.svg');
+}
+.usa-link-rss {
+  @extend .usa-social_link;
+  background-image: url('#{$image-path}/social-icons/png/rss.png');
+  background-image: url('#{$image-path}/social-icons/svg/rss.svg');
+}

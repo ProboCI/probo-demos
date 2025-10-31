@@ -1,0 +1,196 @@
+.usda-search-header {
+  $height: 3.6rem;
+
+  padding: 2rem 0 3rem;
+  background: $color-primary;
+  color: $color-white;
+
+  // .header {
+  //   font-size: 3rem;
+  //   // line-height: $height;
+  //   font-family: $font-sans;
+  // }
+
+  @include media($nav-width) {
+    > .usa-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      &:after {
+        content: none;
+      }
+
+      .header {
+        padding-right: 2rem;
+      }
+
+      .main {
+        > form {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+
+          .query {
+            flex: 1 1 auto;
+            padding-right: 2rem;
+          }
+
+          .filter {
+            flex: 0 0 25%;
+            padding-right: 2rem;
+          }
+
+          .action {
+            flex: 0 0 20%;
+          }
+        }
+
+      }
+    }
+  }
+
+  .main {
+    // .label {
+    //   display: block;
+    //   margin-top: 2rem;
+    //   margin-bottom: 1rem;
+    //   font-size: 1.7rem;
+    //   // color: #3c3c3c;
+
+    //   @include media($nav-width) {
+    //     margin-top: 0;
+    //   }
+    // }
+
+    input, select, button {
+      width: 100%;
+      max-width: 100%;
+      margin: 1rem 0 0;
+      line-height: 1;
+    }
+
+    input[name=query] {
+      @include media($nav-width) {
+        width: 30rem;
+      }
+    }
+
+    button {
+      margin-top: 2rem;
+
+      @include media($nav-width) {
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+.usda-search-results {
+
+  .search-toolbar {
+
+    @include media($nav-width) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .search-info {
+
+    }
+
+    .search-filters {
+
+      .form-item {
+        display: flex;
+        align-items: center;
+
+        label {
+          margin-top: 0;
+          margin-right: 1em;
+          white-space: nowrap;
+        }
+      }
+
+      .form-item-query,
+      .form-actions {
+        display: none;
+      }
+    }
+  }
+
+  .search-results {
+    ul {
+      margin: 3rem 0;
+      padding-left: 0;
+      list-style: none;
+
+      li {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding-top: 3rem;
+        border-top: 1px solid $color-gray-lighter;
+
+        &:last-child {
+          padding-bottom: 3rem;
+          border-bottom: 1px solid $color-gray-lighter;
+        }
+      }
+    }
+  }
+
+}
+
+.region-sidebar-search {
+  padding-top: 0.9rem;
+
+  header {
+    h2 {
+      margin: 0 0 1rem;
+    }
+  }
+
+  .block-facets {
+    overflow: hidden; // fixes bug where long lists of facets still reserve vertical space on the page, leading to lots of whitespace on the bottom of the page
+    margin-bottom: 3rem;
+
+    h3 {
+      margin: 0;
+      // padding: 0.5rem;
+      // background: $color-primary;
+      // color: $color-white;
+      border-bottom: 3px solid $color-gray-lighter;
+    }
+  }
+
+  .facets-widget-checkbox {
+    max-height: 16rem;
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding-top: 0.5rem;
+    // padding: 0.5rem;
+    // border-bottom: 3px solid $color-gray-lighter;
+    // background: $color-gray-lightest;
+
+    ul.item-list__checkbox {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .facet-item {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      label {
+        margin: 0;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,333 @@
+.usa-header-extended {
+  .usa-nav {
+    background: $color-blue-alt;
+
+    // Desktop
+    @include media($nav-width) {
+      border-top: none;
+      background: $color-blue-alt;
+    }
+  }
+
+  .usa-nav-link {
+    position: relative;
+    text-transform: uppercase;
+
+    @include media($nav-width) {
+      padding-top: 2.4rem;
+      padding-bottom: 2.4rem;
+    }
+  }
+
+  .usa-nav-primary {
+    > li {
+      &:not(:first-child) {
+        .usa-nav-link {
+          &::before {
+            @include media($nav-width) {
+              content: " ";
+              display: block;
+              height: 3rem;
+              border-left: 1px solid $color-primary-darker; // #205493;
+              position: absolute;
+              left: 0;
+              top: 1.8rem;
+            }
+          }
+        }
+      }
+
+    }
+
+    .usa-nav-link {
+      &.usa-current,
+      &:hover,
+      &[aria-expanded=true] {
+        padding-left: 1.8rem;
+
+        @include media($nav-width) {
+          padding-left: 2rem;
+        }
+
+        > span {
+          @include media($nav-width) {
+            border-bottom: 0.4rem solid $color-white;
+            padding-bottom: 0.2rem;
+            color: $color-white;
+          }
+        }
+      }
+    }
+
+    .usa-current span,
+    button[aria-expanded=true] span {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    // Duplicated parent item in menu
+    .usda-nav-overview {
+      > a {
+        padding-bottom: .25rem;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        span {
+          padding-bottom: .6rem;
+          border-bottom: 1px solid $color-gray-light;
+          display: block;
+
+          @include media($nav-width) {
+            color: $color-primary;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          span {
+            color: $color-white;
+
+            @include media($nav-width) {
+              border-bottom-color: transparent;
+            }
+          }
+        }
+
+        &,
+        &:hover,
+        &:focus {
+          @include media($nav-width) {
+            padding-left: 1.9rem;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.usa-nav-primary {
+
+  > li {
+    @include media($nav-width) {
+      display: inline-block;
+      margin-left: -4px;
+    }
+  }
+
+  li {
+
+    border-color: $color-primary-darker;
+
+    > button,
+    > a {
+      font-weight: normal;
+      line-height: 1.2;
+      color: $color-white;
+
+      &.usa-nav-link {
+        font-weight: 600;
+      }
+
+      @include media($nav-width) {
+        padding-top: 2.4rem;
+        padding-bottom: 2.4rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+
+      &[aria-expanded=false] {
+        &,
+        &:hover,
+        &:focus {
+          background-image: url(../img/nel/plus-knockout.svg);
+          background-position: right 1rem center;
+          background-size: 1rem;
+          @include media($nav-width) {
+            background-image: none;
+          }
+        }
+      }
+
+      &[aria-expanded=true] {
+        background-image: url(../img/nel/minus-knockout.svg);
+        background-position: right 1rem center;
+        background-size: 1rem;
+        @include media($nav-width) {
+          background-image: none;
+        }
+      }
+    }
+  }
+
+  a {
+    padding-left: 1.8rem;
+
+    &.usa-current {
+      border-left: none;
+      color: $color-white;
+      font-weight: 700;
+    }
+  }
+
+  a,
+  button {
+    &:hover,
+    &:focus {
+      background-color: $color-primary-darker;
+      color: $color-white;
+
+      @include media($nav-width) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  button[aria-expanded=true] {
+    &,
+    &:hover {
+      @include media($nav-width) {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .usa-current:hover span,
+  a.usa-current:hover span {
+    @include media($nav-width) {
+      color: $color-white;
+    }
+  }
+
+}
+
+.usa-nav-link {
+  &.usa-accordion-button {
+    span {
+      @include media($nav-width) {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+//
+// Mobile-only
+//
+@media (max-width: $small-screen - 1px) {
+  .usa-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    min-height: 4rem;
+  }
+
+  .usa-menu-btn {
+    flex: 0 0 5.8rem;
+    order: 2;
+  }
+
+  .usa-logo {
+    display: flex;
+    align-items: center;
+    padding-right: 1.5rem;
+  }
+
+  .usda-logo {
+    flex: 0 0 5.4rem;
+  }
+}
+
+//
+// Secondary nav
+//
+.usa-nav-secondary {
+  @include media($nav-width) {
+    top: -3rem;
+  }
+}
+
+.usa-nav-secondary-links {
+  a {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: $color-gray-lightest;
+
+    @include media($nav-width) {
+      color: $color-gray-dark;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      &,
+      &.usa-current {
+        color: $color-gray-lightest;
+
+        @include media($nav-width) {
+          color: $color-gray;
+        }
+
+      }
+    }
+
+    &.usa-current {
+      padding-left: 0;
+      color: $color-gray-lightest;
+
+      @include media($nav-width) {
+        color: $color-gray-dark;
+      }
+    }
+  }
+}
+
+//
+// Submenus
+//
+.usa-nav-submenu {
+  padding: 1.2rem 0;
+
+  @include media($nav-width) {
+    background: $color-white;
+    box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  }
+
+  li {
+    display: block;
+
+    > a {
+
+      @include media($nav-width) {
+        padding-left: 3.2rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: $color-black;
+      }
+
+      &,
+      &:hover,
+      &.usa-current {
+        padding-left: 2.8rem;
+        line-height: 1.3;
+      }
+
+      &:hover {
+        @include media($nav-width) {
+          background-color: $color-primary-darker;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.usa-nav {
+  .usa-current {
+    border-left: none;
+    padding-left: 1.8rem;
+    font-weight: 700;
+    color: $color-white;
+  }
+}

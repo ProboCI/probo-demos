@@ -1,0 +1,81 @@
+.usda-tabs {
+
+  .usda-tab-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0 -8px 0 0;
+    padding: 0;
+
+    @include media($small-screen) {
+      flex-wrap: nowrap;
+    }
+
+    > li {
+      flex: 1 1 25%;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      
+      @include media($small-screen) {
+        flex: 1 1 0%;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px 5px;
+        font-size: 1.6rem;
+
+        &[aria-expanded=true] {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            margin-left: -15px;
+            border: solid transparent;
+            border-color: rgba(255, 0, 0, 0);
+            border-top-color: $color-primary;
+            border-width: 15px;
+          }
+
+          &:hover:after {
+            border-top-color: $color-primary-darker;
+          }
+
+          &:active:after {
+            border-top-color: $color-primary-darkest;
+          }
+        }
+
+        &[aria-expanded=false] {
+          background-color: $color-white;
+          box-shadow: $button-stroke $color-primary;
+          color: $color-primary;
+
+          &:hover {
+            box-shadow: $button-stroke $color-primary-darker;
+            color: $color-primary-darker;
+          }
+
+          &:active {
+            box-shadow: $button-stroke $color-primary-darkest;
+            color: $color-primary-darkest;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.usda-tab-content {
+  &[aria-hidden=true] {
+    display: none;
+  }
+}

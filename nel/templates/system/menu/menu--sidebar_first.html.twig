@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for a sidebar menu.
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, 0, parent, duplicate_parent) }}
+
+{% macro menu_links(items, menu_level, parent, duplicate_parent) %}
+  {% import _self as menus %}
+
+  {% if items %}
+
+    {% if menu_level == 0 %}
+      <ul class="usa-sidenav-list">
+      {% if duplicate_parent and parent is not empty %}
+      <li>
+        <a href="{{ parent.url }}"{% if parent.in_active_trail %} class="usa-current"{% endif %}>
+          <span>{{ parent.title }}</span>
+        </a>
+      </li>
+      {% endif %}
+    {% else %}
+      <ul class="usa-sidenav-sub_list">
+    {% endif %}
+
+    {% for item in items %}
+      <li>
+        <a href="{{ item.url }}"{% if item.in_active_trail %} class="usa-current"{% endif %}>
+          <span>{{ item.title }}</span>
+        </a>
+
+        {# TODO: Do we want to only expand the active trail? For now, no. #}
+        {% if item.in_active_trail and item.below %}
+          {{ menus.menu_links(item.below, menu_level + 1, item, duplicate_parent) }}
+        {% endif %}
+
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

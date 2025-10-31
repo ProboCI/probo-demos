@@ -1,0 +1,57 @@
+.usda-pictext {
+  display: flex;
+  flex-direction: row;
+  // align-items: flex-start;
+
+  .usda-pictext-text {
+    padding-left: 2rem;
+  }
+
+  img {
+    display: block;
+    max-width: none;
+  }
+
+  // Sizes
+  &.usda-pictext-sm {
+    img {
+      width: 100px;
+      height: auto;
+    }
+  }
+
+  &.usda-pictext-md {
+    img {
+      width: 200px;
+      height: auto;
+    }
+
+    .usda-pictext-text {
+      padding-left: 3rem;
+    }
+  }
+
+  &.usda-pictext-lg {
+    img {
+      width: 400px;
+      height: auto;
+    }
+
+    .usda-pictext-text {
+      padding-left: 4rem;
+    }
+  }
+
+  // Picture styles
+  &.usda-pictext-pic-shadow {
+    img {
+      box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.2);;
+    }
+  }
+
+  &.usda-pictext-pic-circle {
+    img {
+      border-radius: 50%;
+    }
+  }
+}

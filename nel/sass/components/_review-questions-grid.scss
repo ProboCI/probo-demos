@@ -1,0 +1,62 @@
+.usa-review-questions-grid {
+  margin-bottom: 3.5rem;
+
+  header {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background: $color-blue;
+    color: $color-white;
+
+    h3 {
+      font-size: 2.4rem;
+    }
+  }
+
+  .review-questions {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
+  .review-question {
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    overflow: hidden;
+
+    @include media($medium-screen) {
+      flex: 0 0 50%;
+      padding: 0;
+    }
+
+    .box {
+      padding: 1.5rem 2.5rem;
+      background: #f4f4f4;
+      border: 1px solid #d7d7d7;
+      box-shadow: $box-shadow;
+      overflow: hidden;
+
+      @include media($medium-screen) {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        justify-content: space-between;
+        margin: 2rem !important;
+      }
+    }
+
+    p {
+      font-size: 2.4rem;
+      line-height: 1.3;
+      color: $color-blue;
+    }
+
+    .usa-button {
+      display: block;
+      width: 100%;
+    }
+  }
+
+}

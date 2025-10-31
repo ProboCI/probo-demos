@@ -1,0 +1,23 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="slide">
+      <div class="content">
+        {% block content %}
+          <div class="pic">
+            {{ content.field_media }}
+          </div>
+          <div class="text">
+            {{ content.field_body }}
+          </div>
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock paragraph %}

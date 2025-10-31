@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Override of system/menu.html.twig for the footer menu.
+ */
+#}
+
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, 0, footer_style) }}
+
+{% macro menu_links(items, menu_level, footer_style) %}
+  {% import _self as menus %}
+  {% if items %}
+    <ul class="usa-unstyled-list">
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

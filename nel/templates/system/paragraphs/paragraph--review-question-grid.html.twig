@@ -1,0 +1,22 @@
+<div class="usa-review-questions-grid">
+  <header>
+    <h3>{{ content.field_title }}</h3>
+  </header>
+  <div class="review-questions">
+    {% for key, item in content.field_review_questions %}
+      {% if key|first != '#' %}
+        {% set title = item['#title'] %}
+        {% set url = item['#url'] %}
+        <div class="review-question">
+          <div class="box">
+            <p>{{ title }}</p>
+            <div class="actions">
+              <a href="{{ url }}#plain-summary" class="usa-button">Summary</a>
+              <a href="{{ url }}#full-review" class="usa-button">Full Systematic Review</a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

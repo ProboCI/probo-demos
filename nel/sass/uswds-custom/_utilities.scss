@@ -1,0 +1,11 @@
+//
+// Overrides for USWDS utilities.scss mixins
+//
+
+// Focus state mixin
+@mixin focus {
+  // outline: $focus-outline;
+  // outline-offset: $focus-spacing;
+  outline: none;
+  box-shadow: 0 0 3px 2px #5E9ED6;
+}

@@ -1,0 +1,25 @@
+<section class="usda-search-panel">
+  <div class="usa-grid">
+    <header class="header">
+      I'm looking for
+    </header>
+    <div class="main">
+      <form method="get" action="/search">
+        <div class="query">
+          <label class="label" for="query">Search by keyword or phrase:</label>
+          <input type="text" name="query" id="query" placeholder="Search for something...">
+        </div>
+        {# <div class="filter">
+          <label class="label" for="filter">Filter by:</label>
+          <select name="filter" id="filter">
+            <option value="all">All</option>
+          </select>
+        </div> #}
+        <div class="action">
+          {# <span class="label"><a href="#">Advanced search</a></span> #}
+          <button class="usa-button usa-button-secondary" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

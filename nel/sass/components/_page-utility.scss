@@ -1,0 +1,29 @@
+// Holds the breadcrumb and share buttons
+.usda-page-utility {
+  padding: 1.2rem 0;
+  background: $color-gray-lightest; // #f4f4f4;
+  border-bottom: 1px solid $color-gray-lighter; // #d7d7d7;
+
+  > .usa-grid {
+    @include media($medium-screen) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .usda-share {
+    margin-top: 2rem;
+    text-align: right;
+    white-space: nowrap;
+
+    @include media($medium-screen) {
+      margin: -0.6rem 0 -1rem;
+      padding-left: 3rem;
+    }
+  }
+}

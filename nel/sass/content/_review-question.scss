@@ -1,0 +1,117 @@
+.review-question-page {
+
+  .review-question-details {
+
+    header {
+      display: flex;
+      flex-direction: row;
+      padding: 2rem;
+      background: $color-blue-alt;
+      color: $color-white;
+
+      @include media($medium-screen) {
+        padding: 4rem;
+      }
+
+      .text {
+        flex: 1 1 0%;
+      }
+
+      .pic {
+        display: none;
+        width: 16rem + 6rem;
+        padding-left: 6rem;
+
+        @include media($medium-screen) {
+          display: block;
+        }
+
+        img {
+          margin-top: -5rem;
+          margin-bottom: -5.5rem;
+          box-shadow: $box-shadow;
+        }
+      }
+
+      h1 {
+        margin-bottom: 0.25em;
+      }
+
+      h2 {
+        margin-top: 0;
+        font-weight: normal;
+        font-size: 2.4rem;
+      }
+
+    }
+
+    // .content {
+    //   padding: 2rem;
+    //   background: $color-gray-lightest; // #f4f4f4;
+    //   border: 1px solid $color-gray-lighter; // #d7d7d7;
+    //   font-size: 2rem;
+
+    //   @include media($medium-screen) {
+    //     padding: 3rem 4rem 4rem;
+    //   }
+
+    //   h3 {
+    //     font-size: 2.4rem;
+    //   }
+    // }
+  }
+
+  .conclusion-statement {
+    .grade {
+      margin-top: 2.5rem;
+
+      h3 {
+        display: inline;
+      }
+
+      ul {
+        display: inline;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+
+          &:not(:last-child) {
+            position: relative;
+            margin-right: 0.5rem;
+            padding-right: 1rem;
+
+            &:after {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: 15%;
+              height: 70%;
+              width: 1px;
+              border-right: 1px solid #1f1f1f;
+            }
+          }
+
+          span {
+            color: $color-blue;
+          }
+
+        }
+      }
+    }
+  }
+
+  .review-question-body {
+    margin-top: 1rem;
+
+    .usda-tabs {
+      .usda-tab-buttons {
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}

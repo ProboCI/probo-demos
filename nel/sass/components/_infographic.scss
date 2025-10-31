@@ -1,0 +1,140 @@
+.usda-infographic {
+  $icon-size: 8.6rem;
+  $icon-size-md: 9.6rem;
+  $icon-border-size: 0.5rem;
+  $icon-border-size-md: 1rem;
+  $icon-outer-size: $icon-size + ($icon-border-size * 2);
+  $icon-outer-size-md: $icon-size-md + ($icon-border-size-md * 2);
+  $button-height: 8rem;
+  $button-margin: ($icon-outer-size - $button-height) / 2;
+  $button-margin-md: ($icon-outer-size-md - $button-height) / 2;
+
+  ul.usda-infographic-accordion {
+
+    > li {
+      margin: 0;
+      margin-top: $button-margin + $icon-border-size;
+      margin-bottom: $button-margin + $icon-border-size;
+      background: none;
+
+      @include media($nav-width) {
+        margin-top: $button-margin-md + $icon-border-size-md;
+        margin-bottom: $button-margin-md + $icon-border-size-md;
+      }
+
+      > .usa-accordion-button {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        background: none;
+
+        > .picture {
+          z-index: 2;
+          width: $icon-outer-size;
+          height: $icon-outer-size;
+          margin-top: 0 - $button-margin - $icon-border-size;
+          margin-bottom: 0 - $button-margin - $icon-border-size;
+          margin-left: 0 - $icon-border-size;
+          background: $color-white;
+          border: $icon-border-size solid $color-white;
+          border-radius: 50%;
+
+          @include media($nav-width) {
+            width: $icon-outer-size-md;
+            height: $icon-outer-size-md;
+            margin-top: 0 - $button-margin-md - $icon-border-size-md;
+            margin-bottom: 0 - $button-margin-md - $icon-border-size-md;
+            margin-left: 0 - $icon-border-size-md;
+            border: $icon-border-size-md solid $color-white;
+          }
+
+          img {
+            width: $icon-size;
+            height: $icon-size;
+            max-width: none;
+
+            @include media($nav-width) {
+              width: $icon-size-md;
+              height: $icon-size-md;
+            }
+          }
+        }
+
+        > .title {
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          flex: 1 1 auto;
+          height: $button-height;
+          margin-left: 0 - ($icon-outer-size / 2);
+          padding: 1rem 5.5rem 1rem (($icon-outer-size / 2) + 2);
+          background-color: #eeeeee;
+          background-image: url(../img/nel/angle-arrow-down-primary.svg), linear-gradient(135deg, #eeeeee 0%,#eeeeee 50%,#dddddd 50%,#dddddd 100%);
+          background-position: right 2rem center, 0% 0%;
+          background-repeat: no-repeat, repeat;
+          background-size: 1.5rem, auto;
+          font-size: 2rem;
+          color: $color-primary;
+
+          @include media($nav-width) {
+            margin-left: 0 - ($icon-outer-size-md / 2);
+            padding: 1rem 5.5rem 1rem (($icon-outer-size-md / 2) + 2);
+          }
+        }
+
+        &[aria-expanded="true"] {
+          > .title {
+            background-color: #1f5492;
+            background-image: url(../img/nel/angle-arrow-up-knockout.svg), linear-gradient(135deg, #1f5492 0%,#1f5492 50%,#13406b 50%,#13406b 100%);
+            color: $color-white;
+          }
+        }
+      }
+
+      > .usa-accordion-content {
+        padding: 0;
+        background: none;
+      }
+
+      // Inner accordion
+      .usa-accordion {
+
+        padding-left: 2rem;
+
+        @include media($nav-width) {
+          padding-left: $icon-size-md * 0.9;
+        }
+
+        > li {
+          margin: 0.3rem 0;
+
+          .usa-accordion-button {
+            padding-left: 2rem;
+            background-color: #13406b;
+            background-image: url(../img/nel/minus-knockout.svg);
+            color: #fff;
+
+            @include media($nav-width) {
+              padding-left: 4rem;
+            }
+
+            &[aria-expanded="false"] {
+              background-color: #737373;
+              background-image: url(../img/nel/plus-knockout.svg);
+            }
+          }
+
+          .usa-accordion-content {
+            padding: 2rem;
+            background: #eeeeee;
+
+            @include media($nav-width) {
+              padding: 4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

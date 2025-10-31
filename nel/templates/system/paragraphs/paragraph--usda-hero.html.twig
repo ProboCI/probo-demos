@@ -1,0 +1,29 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-hero',
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }} style="background-image: url({{ image_url }})">
+    {% block content %}
+
+      {% if uswds_grid_class %}
+      <div class="{{ uswds_grid_class }}">
+      {% endif %}
+
+      {% if paragraph.field_body.value %}
+      <div class="usa-hero-callout">
+        {{ content.field_body }}
+      </div>
+      {% endif %}
+
+      {% if uswds_grid_class %}
+      </div>
+      {% endif %}
+
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

@@ -1,0 +1,168 @@
+{#
+/**
+ * @file
+ * USWDS theme implementation to display a single page.
+ */
+#}
+
+{% if show_breadcrumb is not defined %}
+  {% set show_breadcrumb = node.field_show_breadcrumbs.value %}
+{% endif %}
+{% if has_sidenav is not defined %}
+  {% set has_sidenav = page.sidebar_first and node.field_show_sidenav.value ? true : false %}
+{% endif %}
+{% set has_sidebar = page.sidebar_second and node.field_show_sidebar.value ? true : false %}
+
+<header class="{{ header_classes }}" id="header" role="banner">
+
+  {% if page.header_top or government_banner %}
+  <section class="usa-banner">
+
+    {{ government_banner }}
+
+    {% if page.header_top %}
+    <div class="usa-banner-inner">
+      {{ page.header_top }}
+    </div>
+    {% endif %}
+
+  </section>
+  {% endif %}
+
+  {% if header_basic %}
+  <div class="usa-nav-container">
+  {% endif %}
+
+  <div class="usa-navbar">
+    <button class="usa-menu-btn">{{ 'Menu'|t }}</button>
+    {{ page.header }}
+  </div>
+
+  <div class="usa-overlay"></div>
+  <div class="usa-nav" role="navigation">
+    <div class="usa-nav-inner">
+
+      <button class="usa-nav-close">
+        <img src="{{ active_theme_path }}/assets/img/nel/close-knockout.svg" alt="close" />
+      </button>
+
+      {% if page.mobile_menu %}
+      <div class="usa-nav-mobile">
+        {{ page.mobile_menu }}
+      </div>
+      {% endif %}
+
+      {% if page.mobile_menu %}
+      <div class="usa-nav-desktop">
+      {% endif %}
+
+      {% if page.primary_menu %}
+      {{ page.primary_menu }}
+      {% endif %}
+
+      {% if page.secondary_menu %}
+      {{ page.secondary_menu }}
+      {% endif %}
+
+      {% if page.mobile_menu %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {% if header_basic %}
+  </div>
+  {% endif %}
+
+</header>
+
+{% if show_breadcrumb %}
+  {{ page.breadcrumb }}
+{% endif %}
+
+{% if page.hero %}
+<section>
+{{ page.hero }}
+</section>
+{% endif %}
+
+{% if page_subtitle %}
+  <div class="page-subtitle">
+    <div class="usa-grid">
+      {# {% if page_subtitle_url %}
+        <a href="{{ page_subtitle_url }}">{{ page_subtitle }}</a>
+      {% else %} #}
+        {{ page_subtitle }}
+      {# {% endif %} #}
+    </div>
+  </div>
+{% endif %}
+
+{# <section class="usa-section uswds-middle-section {{ main_classes }}"> #}
+<section class="{{ main_classes }}">
+  <div class="usa-grid">
+    <div class="usa-width-full">
+
+      {{ page.highlighted }}
+
+      {% if page.help|render|trim %}
+      <div class="usa-alert usa-alert-info">
+        <div class="usa-alert-body">
+          <p class="usa-alert-text">
+            {{ page.help }}
+          </p>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  {{ page.pre_content }}
+
+  {% if is_search %}
+    {{ include('@nel/system/layout/includes/search-header.html.twig') }}
+  {% endif %}
+
+  {# <div class="uswds-main-content-wrapper {% if edge_to_edge == false %}usa-grid{% endif %}"> #}
+  <div class="uswds-main-content-wrapper {% if not full_width or has_sidenav or has_sidebar %}usa-grid{% endif %}">
+    <a id="main-content" tabindex="-1"></a>
+
+    {% if has_sidenav %}
+    <aside class="region-sidebar-first usa-width-one-fourth">
+      {% if is_search %}
+        {{ page.sidebar_search }}
+      {% endif %}
+      {{ page.sidebar_first }}
+    </aside>
+    {% endif %}
+
+    {#
+      Moving 'content_class' value to Twig
+    #}
+    {% set content_class = '' %}
+    {% if has_sidenav and has_sidebar %}
+      {% set content_class = 'usa-width-one-half' %}
+    {% elseif has_sidenav or has_sidebar %}
+      {% set content_class = 'usa-width-three-fourths' %}
+    {% else %}
+      {% set content_class = 'usa-width-full' %}
+    {% endif %}
+    <div class="region-content {{ content_class }}">
+      {{ page.content }}
+    </div>
+
+    {% if has_sidebar %}
+    <aside class="region-sidebar-second usa-width-one-fourth">
+      {{ page.sidebar_second }}
+    </aside>
+    {% endif %}
+
+  </div>
+
+  {{ page.post_content }}
+
+</section>
+
+{{ include('@nel/system/layout/includes/footer.html.twig') }}

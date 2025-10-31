@@ -1,0 +1,92 @@
+.usa-header-extended {
+
+  .usa-logo {
+    @include media($nav-width) {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+  }
+}
+
+/**
+ * USDA logo
+ */
+ .usda-logo {
+  // display: inline-block;
+  float: left;
+  margin-right: 1rem;
+  line-height: 1;
+  width: 54px;
+  height: 37px;
+
+  @include media($small-screen) {
+    margin-top: 2px;
+  }
+
+  @include media($nav-width) {
+    float:left;
+    width: 65px;
+    height: 44px;
+    margin-top: 0;
+  }
+}
+
+.usda-logo-img {
+  width: auto;
+  height: 37px;
+  margin-top: 3px;
+
+  @include media($small-screen) {
+    display:block;
+  }
+
+  @include media($nav-width) {
+    vertical-align:inherit;
+    display: inline;
+    height: 45px;
+    margin-top: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.usda-logo-text {
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  display: inline-block;
+  margin: 0.6rem 0 0 0;
+
+  @include media(375px) {
+    margin: 0.3rem 0 0 0;
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .tagline {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+
+    @include media(375px) {
+      font-size: 1.3rem;
+      line-height: 1.7rem;
+    }
+  }
+
+
+  @include media($nav-width) {
+    display: inline-block;
+    font-size: 2.3rem;
+    line-height: 2.5rem;
+    margin: 0 0 0 0;
+
+    .tagline {
+      font-size: 1.5rem;
+      line-height: 2.2rem;
+    }
+  }
+}

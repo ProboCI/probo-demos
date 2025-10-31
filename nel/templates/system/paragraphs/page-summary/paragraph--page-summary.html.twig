@@ -1,0 +1,44 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+
+  {% if uswds_grid_class %}
+  <div class="{{ uswds_grid_class }}">
+  {% endif %}
+
+  <div class="usa-page-summary">
+    <ul class="usa-accordion">
+      <li>
+        <button class="usa-accordion-button"
+          aria-controls="page-summary-body">
+          <h3>{{ content.field_title }}</h3>
+        </button>
+        <div id="page-summary-body" class="usa-accordion-content">
+          <div class="wrapper">
+            <div class="content">
+              {{ content.field_body }}
+              {{ content.field_links }}
+            </div>
+            {% if content.field_media['#items'] is not empty %}
+              <div class="picture">
+                {{ content.field_media }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  {% if uswds_grid_class %}
+  </div>
+  {% endif %}
+
+</div>

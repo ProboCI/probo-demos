@@ -1,0 +1,157 @@
+{% set base_class = 'evidence-scan' %}
+<section class="{{ base_class }}">
+
+    <header class="{{ base_class }}__header">
+        <p class="{{ base_class }}__header__type">{{ content.field_header }}</p>
+        <h1>{{ title }}</h1>
+        {{ content.field_short_description }}
+        <a
+            class="usa-button"
+            href="{{ current_systematic_review.pdf }}"
+            {% if current_systematic_review.force_download == "true" %}
+                aria-label="Download Full Evidence Scan"
+                download
+            {% else %}
+                aria-label="View Full Evidence Scan"
+            {% endif %}
+        >
+            {{ content.field_button_text }}
+        </a>
+    </header>
+
+    {# Mobile Navigation #}
+    <div id="systematic-review-question-nav-mobile" class="{{ base_class }}__jumplinks {{ base_class }}__jumplinks__mobile">
+        <details open>
+            <summary>
+                <h4>
+                    On this page
+                </h4>
+            </summary>
+            <nav>
+                <ul id="systematic-review-question-nav-mobile">
+                    {% for item in main_content_array %}
+                        <li>
+                            <a href="#{{ item.id }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </details>
+    </div>
+
+    <div class="{{ base_class }}__wrapper">
+
+        {# Main Body Content #}
+        <div id="{{ base_class }}-content" class="{{ base_class }}__content">
+            {% for item in main_content_array %}
+                {% if item.body %}
+                    {# Text and Title #}
+                    <h2 id="{{ item.id }}">{{ item.title }}</h2>
+                    {{ item.body|raw }}
+                {% else %}
+                    {# File Download #}
+                    <div id="{{ item.id }}"></div>
+                    <div class="{{ base_class }}__download">
+                        <div class="{{ base_class }}__download__image">
+                            <img src="{{ item.cover_image }}" alt="">
+                        </div>
+                        <div class="{{ base_class }}__download__body">
+                            <h2>{{ item.title }}</h2>
+                            <div class="{{ base_class }}__download__button">
+                                <a
+                                    href="{{ current_systematic_review.pdf }}"
+                                    class="usa-button"
+                                    {% if current_systematic_review.force_download == "true" %}
+                                        aria-label="Download Full Evidence Scan"
+                                        download
+                                    {% else %}
+                                        aria-label="View Full Evidence Scan"
+                                    {% endif %}
+                                >
+                                    {{ item.button_label }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="usa-alert usa-alert--info usa-alert--no-icon {{ base_class }}__alert">
+                <div class="usa-alert__body">
+                    <p class="usa-alert__text">
+                        Where do I find more information about this project?
+                        <a class="usa-link" href="{{ current_systematic_review.url }}">{{ current_systematic_review.title }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        {# Side Navigation #}
+        <aside class="{{ base_class }}__aside">
+            <div class="{{ base_class }}__aside-content">
+
+                {# Desktop Navigation #}
+                <div id="systematic-review-question-nav-desktop" class="{{ base_class }}__jumplinks {{ base_class }}__jumplinks__desktop">
+                    <h4>On this page</h4>
+                    <nav>
+                        <ul>
+                            {% for item in main_content_array %}
+                                <li>
+                                    <a href="#{{ item.id }}">
+                                        {{ item.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="{{ base_class }}__resources">
+
+                    <div class="{{ base_class }}__resource">
+                        <h4>Full Evidence Scan</h4>
+                        <a
+                            href="{{ current_systematic_review.pdf }}"
+                            {% if current_systematic_review.force_download == "true" %}
+                                aria-label="Download Full Evidence Scan"
+                                download
+                            {% else %}
+                                aria-label="View Full Evidence Scan"
+                            {% endif %}
+                        >Download</a>
+                    </div>
+
+                    {% for item in additional_resources_array %}
+                        <div class="{{ base_class }}__resource">
+                            <h4>{{ item.title }}</h4>
+                            <a href="{{ item.url }}" aria-label="{{ item.aria_label }}">{{ item.button_label}}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                {% if past_systematic_reivews_array is not empty %}
+                    <div class="{{ base_class }}__past-reviews">
+                        {% if content.field_short_label['#items'] is not empty %}
+                            <h4>{{ content.field_short_label }}</h4>
+                        {% endif %}
+                        {% for item in past_systematic_reivews_array %}
+                            <a
+                                href="{{ item.url }}"
+                            >{{ item.title}}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if content.field_link is not empty %}
+                    <div class="{{ base_class }}__links">
+                        {{ content.field_link }}
+                    </div>
+                {% endif %}
+
+            </div>
+        </aside>
+    </div>
+
+</section>

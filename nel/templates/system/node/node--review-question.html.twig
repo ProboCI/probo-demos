@@ -1,0 +1,104 @@
+{% macro conclusion(statement, grade) %}
+  <div class="conclusion-statement">
+    {{ statement }}
+    {% if grade.0 is not empty %}
+      <div class="grade">
+        <h3>
+          Grade:
+        </h3>
+        <ul>
+          {% for key, item in grade %}
+            {% if key|first != '#' %}
+              <li><span>{{ item }}</span></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+<section class="review-question-page">
+
+  <div class="review-question-details">
+    <header>
+      <div class="text">
+        <h1>
+          Systematic Review Question
+        </h1>
+        <h2>
+          {{ label }}
+        </h2>
+      </div>
+      {% if cover_image %}
+        <div class="pic">
+          <img src="{{ cover_image }}" class="cover">
+        </div>
+      {% endif %}
+    </header>
+  </div>
+
+  {% set tabs = [
+    {
+      name: 'conclusion-statement',
+      label: 'Conclusion<br>Statement',
+      heading: 'Conclusion Statement',
+      field: content.field_conclusion_statement,
+      content: _self.conclusion(content.field_conclusion_statement, content.field_grade)
+    },
+    {
+      name: 'plain-summary',
+      label: 'Plain<br>Language Summary',
+      heading: 'Plain Language Summary',
+      field: content.field_plain_language_summary,
+      content: content.field_plain_language_summary,
+    },
+    {
+      name: 'technical-abstract',
+      label: 'Technical<br>Abstract',
+      heading: 'Technical Abstract',
+      field: content.field_technical_abstract,
+      content: content.field_technical_abstract
+    },
+    {
+      name: 'full-review',
+      label: 'Full Systematic<br>Review',
+      heading: 'Full Systematic Review',
+      field: content.field_full_systematic_review,
+      content: content.field_full_systematic_review
+    }
+  ] %}
+
+  <div class="review-question-body">
+    <div class="usda-tabs">
+      <ul class="usda-tab-buttons">
+        {% set first = true %}
+        {% for tab in tabs %}
+          {% if tab.field.0 is not empty %}
+            <li>
+              <button class="usda-tab-button" aria-controls="{{ tab.name }}" aria-expanded="{{ first ? 'true' : 'false' }}">
+                {{ tab.label|raw }}
+              </button>
+            </li>
+            {% set first = false %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      {% set first = true %}
+      {% for tab in tabs %}
+        {% if tab.field.0 is not empty %}
+          <div id="{{ tab.name }}" class="usda-tab-content" aria-hidden="{{ first ? 'false' : 'true' }}">
+            <h1>
+              {{ tab.heading }}
+            </h1>
+            {{ tab.content }}
+          </div>
+          {% set first = false %}
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+
+</section>

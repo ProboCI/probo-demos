@@ -1,0 +1,27 @@
+// .usa-section {
+//   // Remove the padding for the first section within main content
+//   .field__item:first-child & {
+//     padding-top: 0;
+//   }
+// }
+
+.uswds-main-content-wrapper,
+.region-pre-content {
+
+  &:not(.usa-grid) {
+    // remove margin, it's managed by the paragraphs
+    margin: 0;
+  }
+
+  .usa-section {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  a span.external-link {
+    display: inline-block;
+    margin-right: 5px;
+  }
+}

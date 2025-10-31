@@ -1,0 +1,160 @@
+.usda-boxes-slider {
+  position: relative;
+  padding: 0 2px;
+
+  &.usa-section { // to win specificity war
+    margin: 5rem 0;
+  }
+
+  > header {
+    padding: 1.5rem 0;
+    background: #45658d;
+    color: #fff;
+    text-align: center;
+  }
+
+  .arrow-host {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+
+
+  // Slick slider
+  .slick-track {
+    display: flex;
+
+    .slick-slide {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+
+      > div {
+        display: flex;
+        height: 100%;
+      }
+    }
+  }
+
+  .slick-list {
+    overflow-y: visible;
+  }
+
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+
+    @include media($nav-width) {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: calc(50% - 0.6rem);
+      top: calc(50% - 0.6rem);
+      width: 1.2rem;
+      height: 1.2rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1036 1612'%3E%3Cpath d='M1017,275,486,806l531,531q19,19,19,45t-19,45L851,1593q-19,19-45,19t-45-19L19,851Q0,832,0,806t19-45L761,19Q780,0,806,0t45,19l166,166q19,19,19,45T1017,275Z' fill='%23fff'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity 300ms ease;
+
+      @include media($nav-width) {
+        left: calc(50% - 0.8rem);
+        top: calc(50% - 0.8rem);
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+
+    &.slick-disabled {
+      // visibility: hidden;
+      &:after {
+        opacity: 0.25;
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 2rem;
+  }
+
+  .slick-next {
+    right: 2rem;
+
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+.usda-boxes-slider-slide {
+  height: 100%;
+  padding: 2px;
+
+  .slide {
+    height: 100%;
+    background: #7494bd;
+    padding: 3.5rem;
+    transition: transform 0.3s;
+
+    &:hover {
+      background: #45658d;
+      transform: scale(1.03);
+    }
+  }
+
+  .content {
+    @include media($nav-width) {
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
+
+  .pic {
+    text-align: center;
+
+    img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 23rem;
+      vertical-align: baseline;
+      box-shadow: $box-shadow;
+    }
+  }
+
+  .text {
+    &,
+    a {
+      color: $color-white;
+    }
+  }
+
+  .pic + .text {
+    margin-top: 2.5rem;
+  }
+}

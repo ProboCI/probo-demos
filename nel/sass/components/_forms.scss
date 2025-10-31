@@ -1,0 +1,11 @@
+.usa-form {
+  @include media($medium-screen) {
+    max-width: none;
+  }
+}
+
+.usa-form-large {
+  @include media($medium-screen) {
+    max-width: none;
+  }
+}

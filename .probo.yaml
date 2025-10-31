@@ -8,6 +8,7 @@
 type: lamp
 php: 8.4
 database: mariadb:11.4
+nodejs: 8
 
 # These are our build steps. Because we're starting with a fresh install, we need to install
 # Drupal 11 with composer. If you have an existing composer.lock file, you can skip the steps
@@ -16,10 +17,8 @@ steps:
   - name: Install The Latest Modern Drupal With Composer
     plugin: Script
     script: |
-      cd /
-      rm -rf $SRC_DIR
-      composer create-project drupal/recommended-project /src
-      cd /src
+      composer create-project drupal/recommended-project drupal
+      cd drupal
       composer require drupal/admin_toolbar
       composer require drupal/devel
       composer require drush/drush
@@ -31,7 +30,7 @@ steps:
     drupalVersion: 11
     clearCaches: false
     databaseUpdates: false
-    subDirectory: web
+    subDirectory: drupal/web
     phpIniOptions:
       memory_limit: 512M
       max_execution_time: 300
@@ -51,6 +50,13 @@ steps:
       drush site-install -y --account-name=admin --account-pass=admin --db-url=mysql://probo:strongpassword@localhost:3306/drupal --site-name="Modern Drupal Probo.CI Example" --site-mail="admin@example.com" --yes
       drush en admin_toolbar devel -y    
       drush cr
+
+  - name: Build Our SASS Theme
+    plugin: Script
+    script: |
+      cd $SRC_DIR/nel
+      npm install
+      npm run build
 
   # This step is optional given we are assigning our username and password in the previous step, but you can
   # leverage this technique to quickly log in to your Probo.CI environment with your privileged account.
