@@ -44,7 +44,6 @@ steps:
     plugin: Script
     script: |
       source "$HOME/.nvm/nvm.sh"
-      nvm use 8
       cd $SRC_DIR/nel
       npm install
       npm run build
