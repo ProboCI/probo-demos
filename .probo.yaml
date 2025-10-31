@@ -10,27 +10,16 @@ php: 8.4
 database: mariadb:11.4
 nodejs: 8
 
-# These are our build steps. Because we're starting with a fresh install, we need to install
-# Drupal 11 with composer. If you have an existing composer.lock file, you can skip the steps
-# to install the base project and simply use `composer install` at this step.
 steps:
-  - name: Install The Latest Modern Drupal With Composer
-    plugin: Script
-    script: |
-      composer create-project drupal/recommended-project drupal
-      cd drupal
-      composer require drupal/admin_toolbar
-      composer require drupal/devel
-      composer require drush/drush
-
   # We need to tell Probo.CI that we're using a Drupal site so the database is properly configured
   # and settings.php files are also properly configured.
   - name: Set Up The Drupal Plugin
     plugin: Drupal
     drupalVersion: 11
+    composer: true
     clearCaches: false
     databaseUpdates: false
-    subDirectory: drupal/web
+    subDirectory: web
     phpIniOptions:
       memory_limit: 512M
       max_execution_time: 300
@@ -54,6 +43,7 @@ steps:
   - name: Build Our SASS Theme
     plugin: Script
     script: |
+      nvm use 8
       cd $SRC_DIR/nel
       npm install
       npm run build
