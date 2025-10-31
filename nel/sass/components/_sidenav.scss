@@ -1,0 +1,36 @@
+.usa-sidenav-list {
+  border: none;
+
+  > li {
+    border-top: none;
+
+    + li {
+      border-top: 1px solid #acacac;
+    }
+  }
+
+  a {
+    &.usa-current {
+      border-left: none;
+      padding-left: 1.5rem;
+    }
+
+
+  }
+}
+
+.usa-sidenav-sub_list {
+  a {
+    &.usa-current {
+      padding-left: 2.8rem;
+    }
+  }
+
+  .usa-sidenav-sub_list {
+    a {
+      &.usa-current {
+        padding-left: 3.8rem;
+      }
+    }
+  }
+}

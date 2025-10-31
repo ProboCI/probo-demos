@@ -1,0 +1,23 @@
+.usa-hero {
+  @include padding(4.5rem null);
+
+  .usa-hero-callout {
+    background-color: $color-white;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+
+    @include media($small-screen) {
+      max-width: 36rem;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: $color-blue;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+}

@@ -1,0 +1,53 @@
+// USDA customizations to the USWDS styles
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: $font-sans;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // Fancy heading
+  &.fancy {
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 4px solid $color-blue;
+    border-bottom: 4px solid $color-blue;
+    color: $color-blue;
+  }
+
+  // Ruled heading
+  &.ruled {
+    border-bottom: 0.5rem solid $color-gray-lightest;
+  }
+
+}
+
+p {
+  margin-top: 0;
+}
+
+// Text colors
+.usa-text-color-blue {
+  color: $color-blue;
+}
+
+// Lead font
+.usa-font-lead {
+  font-family: $font-sans;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}

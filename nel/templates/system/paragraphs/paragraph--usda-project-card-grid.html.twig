@@ -1,0 +1,53 @@
+{%
+  set base_class = 'usda-project-card-grid'
+%}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+    base_class,
+  ]
+%}
+
+{% block paragraph %}
+
+  <div
+    {{ attributes.addClass(classes) }}
+    {% if content.field_id is not empty %}
+      id="{{ content.field_id.0 }}"
+    {% endif %}
+  >
+    <h2 class="{{ base_class }}__heading">
+      {{ content.field_title }}
+    </h2>
+    {% if content.field_subtitle is not empty %}
+      <div class="{{ base_class }}__subheading">
+        {{ content.field_subtitle }}
+      </div>
+    {% endif %}
+    <div class="{{ base_class }}__cards">
+
+    {% for item in items %}
+      <div class="{{ base_class }}__card">
+        <div class="{{ base_class }}__card-image">
+          {% if item.cover_image %}
+            <img src="{{ item.cover_image }}" alt="">
+          {% endif %}
+        </div>
+        <div class="{{ base_class }}__card-body">
+          <div class="{{ base_class }}__card-title">
+            {{ item.title }}
+          </div>
+          <div class="{{ base_class }}__card-link">
+            <a href="{{ item.url }}">View More</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    </div>
+  </div>
+{% endblock paragraph %}

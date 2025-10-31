@@ -1,0 +1,75 @@
+.usda-panel-with-picture {
+  position: relative;
+
+  &.usa-section { // to win specificity war
+    @include margin(7rem null);
+    @include padding(7rem null);
+  }
+
+  .usa-section {
+    padding: 0;
+  }
+
+  .usa-grid {
+    position: relative;
+    z-index: 2;
+  }
+
+  .pic {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .box {
+    margin-left: calc(50% - 6.5rem);
+    padding: 5rem;
+    background: $color-white;
+    line-height: 1.5;
+    // font-weight: normal;
+    font-family: $font-serif;
+
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: inherit;
+    // font-weight: inherit;
+    font-family: inherit;
+  }
+
+  // Colors
+  &,
+  &.color-aqua {
+    background-color: $color-aqua;
+  }
+
+  &.color-blue {
+    background-color: $color-blue;
+  }
+
+  &.color-blue-light {
+    background-color: $color-blue-light;
+  }
+
+  &.color-purple {
+    background-color: #5f2aa0;
+  }
+}

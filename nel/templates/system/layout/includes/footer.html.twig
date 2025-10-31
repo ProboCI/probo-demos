@@ -1,0 +1,130 @@
+<footer class="{{ footer_classes }}" role="contentinfo">
+  <div class="usa-grid usa-footer-return-to-top">
+    <a href="#">Return to top</a>
+  </div>
+
+  <div class="usda-footer-quick-links">
+    <div class="usa-grid">
+      <nav class="usa-footer-nav usa-width-one-whole">
+        {{ page.footer_quick_links }}
+      </nav>
+    </div>
+  </div>
+
+  {% if display_footer_primary %}
+  <div class="usa-footer-primary-section">
+    <div class="usa-grid">
+      {# <nav class="usa-footer-nav {{ footer_menu_width }}"> #}
+      <nav class="usa-footer-nav usa-width-two-thirds">
+
+        {% if page.footer_menu %}
+        {{ page.footer_menu }}
+        {% endif %}
+
+      </nav>
+
+      <div class="usa-sign_up-block usa-width-one-third">
+        <h3 class="usa-sign_up-header">Sign Up for Updates</h3>
+
+        <form action="https://public.govdelivery.com/accounts/USDACNPP/subscribers/qualify">
+          <label class="" for="email" id="">Your email address</label>
+          <input id="email" name="email" type="email" class="signup__input">
+          <button type="submit" class="signup__button">Sign up</button>
+        </form>
+      </div>
+
+      {# {% if footer_slim and (phone or email) %}
+      <div class="usa-width-one-third">
+
+        {% if phone %}
+        <div class="usa-footer-primary-content usa-footer-contact_info">
+          <p><a href="tel:{{ phone }}">{{ phone }}</a></p>
+        </div>
+        {% endif %}
+
+        {% if email %}
+        <div class="usa-footer-primary-content usa-footer-contact_info">
+          <p><a href="mailto:{{ email }}">{{ email }}</a></p>
+        </div>
+        {% endif %}
+
+      </div>
+      {% endif %} #}
+
+      {% if page.footer %}
+      <div class="usa-grid">
+        {{ page.footer }}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="usa-footer-secondary_section usa-footer-big-secondary-section">
+    <div class="usa-grid">
+      <div class="usa-footer-logo">
+        <div class="usa-logo">
+          <span href="/" title="Home" rel="home" class="usda-logo">
+            <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" class="usda-logo-img">
+          </span>
+          <a class="usda-logo-text" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" aria-label="Home" rel="home">
+            {{ site_name }}
+            <div class="tagline">{{ site_slogan }}</div>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="usa-social-links">
+        <div class="usa-social-links-set">
+
+          {% if twitter %}
+            <a class="usa-social_link usa-link-twitter" rel="noopener" href="{{ twitter }}">
+              <span>USDA on Twitter</span>
+            </a>
+          {% endif %}
+
+          {% if facebook %}
+            <a class="usa-social_link usa-link-facebook" rel="noopener" href="{{ facebook }}">
+              <span>USDA on Facebook</span>
+            </a>
+          {% endif %}
+
+          {% if govdelivery %}
+            <a class="usa-social_link usa-link-govdelivery" rel="noopener" href="{{ govdelivery }}">
+              <span>USDA on govdelivery</span>
+            </a>
+          {% endif %}
+
+          {% if instagram %}
+            <a class="usa-social_link usa-link-instagram" rel="noopener" href="{{ instagram }}">
+              <span>USDA on Instagram</span>
+            </a>
+          {% endif %}
+
+        </div>
+        <div class="usa-social-links-set">
+
+          {% if flickr %}
+            <a class="usa-social_link usa-link-flickr" rel="noopener" href="{{ flickr }}">
+              <span>USDA on Flickr</span>
+            </a>
+          {% endif %}
+
+          {% if youtube %}
+            <a class="usa-social_link usa-link-youtube" rel="noopener" href="{{ youtube }}">
+              <span>USDA on YouTube</span>
+            </a>
+          {% endif %}
+
+          {% if rss %}
+            <a class="usa-social_link usa-link-rss" rel="noopener" href="{{ rss }}">
+              <span>USDA on RSS</span>
+            </a>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>

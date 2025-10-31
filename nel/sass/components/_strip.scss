@@ -1,0 +1,66 @@
+.usda-strip {
+  @include media($medium-screen) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+}
+
+.usda-strip-box {
+  text-align: center;
+  padding-top: 2px;
+
+  @include media($medium-screen) {
+    flex: 1 1 0;
+    min-width: 50%;
+    padding-top: 9.5rem;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+
+  @include media($large-screen) {
+    min-width: 0;
+  }
+
+  .box {
+    height: 100%;
+    padding: 4rem 2rem;
+    background-color: #5f2aa0;
+    color: $color-white;
+    transition: transform 0.3s;
+
+    @include media($large-screen) {
+      padding: 2rem;
+    }
+
+    &:hover {
+      background-color: #420b85;
+      transform: scale(1.03);
+    }
+
+    > a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .pic {
+    width: 14rem;
+    height: 14rem;
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    border: 3px solid $color-white;
+
+    @include media($medium-screen) {
+      margin-top: -9.5rem;
+    }
+  }
+
+  .more {
+    text-decoration: underline;
+  }
+}

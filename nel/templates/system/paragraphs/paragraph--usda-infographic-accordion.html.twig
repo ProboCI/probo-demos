@@ -1,0 +1,31 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  ]
+%}
+{% block paragraph %}
+  <li{{ attributes.addClass(classes) }}>
+    {% block content %}
+
+      <button class="usa-accordion-button"
+        aria-expanded="{{ expanded }}" aria-controls="{{ controls }}">
+        <div class="picture">
+          {{ content.field_media }}
+        </div>
+        <div class="title">
+          <span>{{ content.field_title.0 }}</span>
+        </div>
+      </button>
+      <div id="{{ controls }}" class="usa-accordion-content">
+        <ul class="usa-accordion">
+          {% for key,value in paragraph.field_paragraphs.value %}
+            {{ content.field_paragraphs[key] }}
+          {% endfor %}
+        </ul>
+      </div>
+
+    {% endblock %}
+  </li>
+{% endblock paragraph %}

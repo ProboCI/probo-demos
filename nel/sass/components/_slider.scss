@@ -1,0 +1,193 @@
+.usda-slider {
+  position: relative;
+
+  &.usa-section { // to win specificity war
+    margin: 5rem 0;
+  }
+
+  .arrow-host {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  // Colors
+  &.color-aqua {
+    .slide {
+      background-color: $color-aqua;;
+      color: #fff;
+      a:not(.usa-button) {
+        color: inherit;
+      }
+    }
+  }
+
+  &.color-blue {
+    .slide {
+      background-color: $color-blue;
+      color: #fff;
+      a:not(.usa-button) {
+        color: inherit;
+      }
+    }
+  }
+
+  &.color-blue-light {
+    .slide {
+      background-color: $color-blue-light;
+      color: #fff;
+      a:not(.usa-button) {
+        color: inherit;
+      }
+    }
+  }
+
+  &,
+  &.color-purple {
+    .slide {
+      background-color: #5f2aa0;
+      color: #fff;
+      a:not(.usa-button) {
+        color: inherit;
+      }
+    }
+  }
+
+
+  // Slick slider
+  .slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+
+    @include media($nav-width) {
+      width: 6rem;
+      height: 6rem;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: calc(50% - 0.6rem);
+      top: calc(50% - 0.6rem);
+      width: 1.2rem;
+      height: 1.2rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1036 1612'%3E%3Cpath d='M1017,275,486,806l531,531q19,19,19,45t-19,45L851,1593q-19,19-45,19t-45-19L19,851Q0,832,0,806t19-45L761,19Q780,0,806,0t45,19l166,166q19,19,19,45T1017,275Z' fill='%23fff'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      opacity: 1;
+      transition: opacity 300ms ease;
+
+      @include media($nav-width) {
+        left: calc(50% - 0.8rem);
+        top: calc(50% - 0.8rem);
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+
+    &.slick-disabled {
+      // visibility: hidden;
+      &:after {
+        opacity: 0.25;
+      }
+    }
+  }
+
+  .slick-prev {
+    left: 2rem;
+  }
+
+  .slick-next {
+    right: 2rem;
+
+    &:after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+.usda-slider-slide {
+
+  @include media($medium-screen) {
+    padding: 3.5rem 0;
+  }
+
+  .slide {
+    // background: #5f2aa0;
+    padding: 3rem 5rem;
+
+    @include media($medium-screen) {
+      padding: 5rem 5rem;
+    }
+
+    @include media($nav-width) {
+      padding: 5rem 8rem;
+    }
+  }
+
+  .content {
+    text-align: center;
+
+    @include media($medium-screen) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  .pic {
+    > div {
+      width: 20rem;
+      height: 20rem;
+      overflow: hidden;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      // @include media($medium-screen) {
+      //   width: 20rem;
+      //   height: 20rem;
+      // }
+
+      @include media($nav-width) {
+        width: 30rem;
+        height: 30rem;
+        margin: -8.5rem 0;
+      }
+    }
+  }
+
+  .text {
+    // color: $color-white;
+
+    @include media($medium-screen) {
+      flex: 1 1 0;
+      padding-left: 3rem;
+    }
+
+    @include media($nav-width) {
+      padding-left: 6rem;
+    }
+  }
+}

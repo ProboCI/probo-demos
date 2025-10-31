@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * USWDS theme implementation for a breadcrumb trail.
+ */
+#}
+{% if breadcrumb %}
+<div class="usda-page-utility">
+  <div class="usa-grid">
+    <nav class="usa-breadcrumb" aria-label="breadcrumb">
+      {# <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2> #}
+      <ol class="usa-unstyled-list">
+        {% for item in breadcrumb %}
+          <li>
+            {% if item.url %}
+              <a href="{{ item.url }}">{{ item.text }}</a>
+            {% else %}
+              {{ item.text }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ol>
+    </nav>
+    <div class="usda-share">
+      {# <div class="addthis_inline_share_toolbox"></div> #}
+    </div>
+  </div>
+</div>
+{% endif %}

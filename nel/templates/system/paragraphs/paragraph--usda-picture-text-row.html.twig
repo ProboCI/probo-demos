@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+  ]
+%}
+{% block paragraph %}
+
+  {% if uswds_grid_class %}
+  <div class="{{ uswds_grid_class }}">
+  {% endif %}
+
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      {{ content.field_uswds_media }}
+      {{ content.field_uswds_body }}
+    {% endblock %}
+  </div>
+
+  {% if uswds_grid_class %}
+  </div>
+  {% endif %}
+
+{% endblock paragraph %}

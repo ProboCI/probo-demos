@@ -1,0 +1,32 @@
+<?php
+
+function getFieldValue($entity, $field_name) {
+    if ($field_name === '') return null;
+    if (!$entity->hasField($field_name)) return null;
+    if ($entity->get($field_name)->isEmpty()) return '';
+    $value = $entity->get($field_name)->value;
+
+    return $value;
+}
+
+function slugify(string $text): string {
+    // Replace non-letter or digits with hyphens
+    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+
+    // Transliterate to ASCII
+    $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
+
+    // Remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    // Trim
+    $text = trim($text, '-');
+
+    // Remove duplicate hyphens
+    $text = preg_replace('~-+~', '-', $text);
+
+    // Lowercase
+    $text = strtolower($text);
+
+    return empty($text) ? 'n-a' : $text;
+  }

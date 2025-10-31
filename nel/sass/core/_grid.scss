@@ -1,0 +1,16 @@
+.usa-grid {
+
+  // Remove margin if a .usa-section is the first element in a column
+  .usda-column {
+    .usa-section:first-child {
+      margin-top: 0;
+    }
+  }
+
+  // Remove padding from embedded grids
+  .usa-grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

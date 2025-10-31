@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    <header>
+      <div class="usa-grid">
+        <h2>{{ content.field_title }}</h2>
+      </div>
+    </header>
+    <div class="slider">
+      <div class="arrow-host"></div>
+      <div class="slides">
+        {{ content.field_slides }}
+      </div>
+    </div>
+  </div>
+{% endblock paragraph %}

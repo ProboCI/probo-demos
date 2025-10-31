@@ -1,0 +1,22 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="pic"{% if image_url %} style="background-image: url({{ image_url }});"{% endif %}></div>
+    {% block content %}
+      <div class="usa-grid">
+        <div class="box">
+          {{ content.field_body }}
+        </div>
+      </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}
+

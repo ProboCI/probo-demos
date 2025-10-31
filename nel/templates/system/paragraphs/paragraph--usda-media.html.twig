@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    'usa-section',
+    'usa-content',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+
+  {% if uswds_grid_class %}
+  <div class="{{ uswds_grid_class }}">
+  {% endif %}
+
+  <div class="usda-media-picture">
+    {% if zoom %}
+      <button class="usda-media-zoom-button"></button>
+    {% endif %}
+    {{ content.field_media }}
+  </div>
+
+  {% if uswds_grid_class %}
+  </div>
+  {% endif %}
+
+</div>

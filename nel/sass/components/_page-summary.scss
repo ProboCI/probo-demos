@@ -1,0 +1,61 @@
+.usa-page-summary {
+  background: #efefef;
+  border: 0.1rem solid #d6d6d6;
+
+  .usa-accordion {
+
+    > li {
+      margin-bottom: 0;
+      background-color: transparent;
+    }
+
+    .usa-accordion-button {
+      padding: 1.75rem 2rem 1.5rem;
+      background-color: transparent;
+      background-image: url(../img/minus-blue.svg);
+      color: $color-blue;
+
+      &[aria-expanded=false] {
+        background-image: url(../img/plus-blue.svg);
+      }
+    }
+
+    .usa-accordion-content {
+
+      padding: 0 2rem 2rem;
+      background-color: transparent;
+      // color: $color-white;
+
+      .wrapper {
+        display: flex;
+      }
+
+      .content {
+        flex: 1 1 auto;
+
+        p:first-child {
+          margin-top: 0;
+        }
+
+        ul li {
+          list-style-type: disc;
+        }
+      }
+
+      .picture {
+        flex: 0 0 30%;
+        align-self: flex-end;
+        margin-bottom: -3rem;
+        margin-right: -3rem;
+        padding-left: 2rem;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+    }
+  }
+}
