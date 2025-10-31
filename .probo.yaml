@@ -43,7 +43,6 @@ steps:
   - name: Build Our SASS Theme
     plugin: Script
     script: |
-      source "$HOME/.nvm/nvm.sh"
       cd $SRC_DIR/nel
       npm install
       npm run build
