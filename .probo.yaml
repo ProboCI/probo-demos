@@ -2,9 +2,6 @@ type: dotnet
 dotnet: 9
 
 steps:
-  - name: Install The Latest Modern Drupal With Composer
+  - name: Install our .NET Application
     plugin: Dotnet
     subDirectory: ProboApp
-    environment:
-      TEST: This is a TEST
-      SRC: /src
