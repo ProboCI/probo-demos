@@ -1,5 +1,6 @@
 type: dotnet
 dotnet: 9
+database: mssql
 
 steps:
   - name: Install our .NET Application
