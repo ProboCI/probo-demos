@@ -1,0 +1,7 @@
+type: dotnet
+dotnet: 9
+
+steps:
+  - name: Install The Latest Modern Drupal With Composer
+    plugin: Dotnet
+    subDirectory: ProboApp
