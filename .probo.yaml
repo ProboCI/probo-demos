@@ -5,3 +5,6 @@ steps:
   - name: Install The Latest Modern Drupal With Composer
     plugin: Dotnet
     subDirectory: ProboApp
+    environment:
+      TEST: This is a TEST
+      SRC: $SRC_DIR
