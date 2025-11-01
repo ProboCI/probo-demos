@@ -7,4 +7,4 @@ steps:
     subDirectory: ProboApp
     environment:
       TEST: This is a TEST
-      SRC: $SRC_DIR
+      SRC: /src
