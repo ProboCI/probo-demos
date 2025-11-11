@@ -20,6 +20,7 @@ steps:
     drupalVersion: 11
     clearCaches: true
     databaseUpdates: true
+    configImport: true
     composer: true
     redis: true
     subDirectory: web
