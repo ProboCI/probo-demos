@@ -26,6 +26,7 @@ steps:
     composer: true
     redis: true
     subDirectory: web
+    configSyncDirectory: ../config/sync
     phpIniOptions:
       memory_limit: 512M
       max_execution_time: 300
