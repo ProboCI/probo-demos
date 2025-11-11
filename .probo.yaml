@@ -19,7 +19,7 @@ steps:
     plugin: Drupal
     drupalVersion: 11
     database: demo.sql.gz
-    datanaseGzip: true
+    datanaseGzipped: true
     clearCaches: true
     databaseUpdates: true
     configImport: true
