@@ -18,6 +18,7 @@ steps:
   - name: Set Up The Drupal Plugin
     plugin: Drupal
     drupalVersion: 11
+    database: demo.sql.gz
     clearCaches: true
     databaseUpdates: true
     configImport: true
