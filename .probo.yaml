@@ -1,0 +1,40 @@
+# Setup the environment.
+# This is where you configure your build envionment. For Drupal, we're using a PHP 8.4
+# environment with the latest MySQL 8.0 database. Other database options are provided
+# such as mariadb, postgresql, and mysql 5.7, 8.0 and 8.4. PHP versions are available
+# from PHP 5.6 - PHP 8.5. Make sure you select the version of PHP most appropriate for
+# the version of Drupal you are using. You can also use other versions for the purposes
+# of testing in other versions.=
+type: lamp
+php: 8.4
+database: mysql:8.4
+
+assets:
+  - demo.sql.gz
+
+steps:
+  # We need to tell Probo.CI that we're using a Drupal site so the database is properly configured
+  # and settings.php files are also properly configured.
+  - name: Set Up The Drupal Plugin
+    plugin: Drupal
+    drupalVersion: 11
+    database: demo.sql.gz
+    databaseGzipped: true
+    clearCaches: true
+    databaseUpdates: true
+    configImport: true
+    composer: true
+    redis: true
+    subDirectory: web
+    configSyncDirectory: ../config/sync
+    phpIniOptions:
+      memory_limit: 512M
+      max_execution_time: 300
+
+  # This step is optional given we are assigning our username and password in the previous step, but you can
+  # leverage this technique to quickly log in to your Probo.CI environment with your privileged account.
+  - name: Get Drush uli For Our site
+    plugin: Script
+    script: |
+      cd $SRC_DIR/web
+      drush uli
